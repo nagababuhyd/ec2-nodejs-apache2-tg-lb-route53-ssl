@@ -40,3 +40,85 @@ access app with public ip
 ######################
 
 install certbot for http url free ssl
+
+##############################
+get domain for app
+
+in realtime after app works with apache2  to get domain name for app
+
+create domain example.com
+create a record
+
+Name: myapp.example.com
+Type: A
+Value: <Public IP of your EC2>  or load balancer url
+TTL: 300
+
+myapp.example.com → myapp-alb-123456789.us-east-1.elb.amazonaws.com
+
+
+
+##########################################
+to get ssl https
+
+but it is working with http i want ssl then?
+
+🥈 Option 2 — AWS Certificate Manager (ACM)
+
+
+#Go to AWS Certificate Manager (ACM) → Request public certificate
+
+#Add your domain (myapp.example.com)
+
+#Validate via DNS 
+
+#(Route53 adds CNAME of ssl automatically)
+
+#######################
+Attach the certificate to: in load balancer listener 443
+create alb
+create target group 
+add instances
+🔹 Step 6 — Add HTTPS Listener (SSL Termination)
+Go to your Load Balancer → Listeners tab.
+
+Click Add listener → choose:
+
+Protocol: HTTPS
+
+Port: 443
+
+Under Default action, select Forward to → your Target Group
+
+Under SSL certificate, choose:
+
+Certificate type: “From ACM”
+
+Select the SSL certificate you created earlier (e.g., myapp.example.com)
+
+Save.
+
+##################################################################################
+
+
+
+
+🔹 Step 7 — (Optional) Redirect HTTP → HTTPS
+
+You can make your ALB automatically redirect port 80 → 443.
+
+On the HTTP (80) listener:
+
+Click Edit rule
+
+Change action to:
+
+Redirect to → HTTPS (port 443)
+
+
+Save.
+
+
+
+
+
