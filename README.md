@@ -1,4 +1,10 @@
 
+Feature	Purpose	When to use
+🌐 Register Domain	Buy a brand-new domain name (like myappdevops.com) from AWS	You don’t already own a domain anywhere else
+🧭 Hosted Zone	Manage DNS records (A, CNAME, MX, etc.) for a domain	You already own the domain (either bought in Route 53 or another provider)
+
+
+
 in realtime we manually do same as instance 1 in instance2
 create 1 target group add 2 ec2 instance there
 attach to alb
