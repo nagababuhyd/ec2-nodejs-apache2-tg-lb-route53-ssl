@@ -1,3 +1,17 @@
+
+in realtime we manually do same as instance 1 in instance2
+create 1 target group add 2 ec2 instance there
+attach to alb
+
+create domain name
+create a record with appname and point to lb as A type
+
+create ssl as same as appname and onfigure cnames in domain that is it
+nowu can access app with url
+PENDING
+
+
+
 https://medium.com/@a_farag/deploying-a-node-js-project-with-pm2-in-production-mode-fc0e794dc4aa
 ####################################################################################
 
